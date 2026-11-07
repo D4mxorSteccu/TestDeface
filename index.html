@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Toko Online Sederhana</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+  header{background:#1e40af;color:#fff;padding:18px 24px;display:flex;
+         justify-content:space-between;align-items:center}
+  header h1{font-size:1.3rem}
+  nav a{color:#fff;text-decoration:none;margin-left:18px;font-size:.9rem}
+  .hero{background:#e0e7ff;padding:60px 24px;text-align:center}
+  .hero h2{font-size:2rem;color:#1e3a8a;margin-bottom:12px}
+  .hero p{color:#3730a3;margin-bottom:22px}
+  .btn{background:#1e40af;color:#fff;padding:12px 24px;border-radius:6px;
+       text-decoration:none;display:inline-block}
+  .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;padding:40px 24px;max-width:1000px;margin:0 auto}
+  .card{border:1px solid #e5e7eb;border-radius:8px;padding:18px;text-align:center}
+  .card h3{color:#111827;margin-bottom:8px}
+  .card p{color:#6b7280;font-size:.9rem;margin-bottom:12px}
+  .card span{color:#1e40af;font-weight:bold}
+  footer{background:#111827;color:#9ca3af;text-align:center;padding:20px;
+         font-size:.85rem;margin-top:40px}
+</style>
+</head>
+<body>
+  <header>
+    <h1>TokoKu</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="upload.html">Upload Produk</a>
+      <a href="komentar.html">Komentar</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Selamat Datang di TokoKu</h2>
+    <p>Platform jual beli sederhana untuk uji coba</p>
+    <a href="upload.html" class="btn">Mulai Jualan</a>
+  </section>
+
+  <section class="products">
+    <div class="card">
+      <h3>Produk A</h3>
+      <p>Deskripsi produk contoh</p>
+      <span>Rp 100.000</span>
+    </div>
+    <div class="card">
+      <h3>Produk B</h3>
+      <p>Deskripsi produk contoh</p>
+      <span>Rp 200.000</span>
+    </div>
+    <div class="card">
+      <h3>Produk C</h3>
+      <p>Deskripsi produk contoh</p>
+      <span>Rp 300.000</span>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 TokoKu — Sistem uji coba
+  </footer>
+</body>
+</html>
