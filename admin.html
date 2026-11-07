@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin Login</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+  body{background:#f3f4f6;min-height:100vh;display:flex;
+       align-items:center;justify-content:center}
+  .box{background:#fff;padding:32px;border-radius:8px;
+       box-shadow:0 4px 18px rgba(0,0,0,.08);width:100%;max-width:360px}
+  h1{color:#111827;margin-bottom:20px;text-align:center;font-size:1.4rem}
+  label{display:block;font-size:.85rem;color:#374151;margin-bottom:6px}
+  input{width:100%;padding:10px;border:1px solid #d1d5db;border-radius:6px;
+        margin-bottom:14px;font-size:.95rem}
+  button{width:100%;padding:11px;background:#1e40af;color:#fff;border:none;
+         border-radius:6px;font-size:1rem;cursor:pointer}
+  #msg{margin-top:14px;font-size:.85rem;text-align:center}
+</style>
+</head>
+<body>
+  <div class="box">
+    <h1>Admin Panel</h1>
+    <label>Username</label>
+    <input id="u" type="text" placeholder="admin">
+    <label>Password</label>
+    <input id="p" type="password" placeholder="password">
+    <button onclick="login()">Masuk</button>
+    <div id="msg"></div>
+  </div>
+
+<script>
+  /* KECACATAN: kredensial tertulis polos di sisi klien */
+  const USER = "admin";
+  const PASS = "admin123";
+
+  function login(){
+    const u = document.getElementById("u").value;
+    const p = document.getElementById("p").value;
+    const msg = document.getElementById("msg");
+
+    if(u === USER && p === PASS){
+      msg.style.color = "green";
+      msg.textContent = "Login berhasil, mengalihkan...";
+      /* KECACATAN: sesi disimpan di localStorage tanpa token */
+      localStorage.setItem("admin_session", "true");
+      setTimeout(()=> location.href = "dashboard.html", 800);
+    } else {
+      msg.style.color = "red";
+      msg.textContent = "Username atau password salah";
+    }
+  }
+</script>
+</body>
+</html>
