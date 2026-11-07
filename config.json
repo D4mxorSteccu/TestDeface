@@ -1,0 +1,15 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "admin123",
+    "email": "admin@tokoku.local"
+  },
+  "database": {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "name": "tokoku"
+  },
+  "api_key": "sk_test_1234567890abcdef",
+  "secret": "tokoku_secret_2026"
+}
