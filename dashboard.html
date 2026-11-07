@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dashboard Admin</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+  body{background:#f9fafb}
+  header{background:#1e40af;color:#fff;padding:16px 24px;
+         display:flex;justify-content:space-between;align-items:center}
+  .wrap{padding:30px 24px;max-width:900px;margin:0 auto}
+  .stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+        gap:16px;margin-bottom:26px}
+  .box{background:#fff;padding:20px;border-radius:8px;
+       box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  .box h3{color:#6b7280;font-size:.8rem;text-transform:uppercase;margin-bottom:8px}
+  .box p{color:#111827;font-size:1.6rem;font-weight:bold}
+  textarea{width:100%;min-height:140px;padding:12px;border:1px solid #d1d5db;
+           border-radius:6px;font-family:monospace;font-size:.9rem;margin-bottom:12px}
+  button{padding:10px 20px;background:#dc2626;color:#fff;border:none;
+         border-radius:6px;cursor:pointer}
+  #out{margin-top:14px;font-size:.85rem;color:#065f46}
+</style>
+</head>
+<body>
+  <header>
+    <strong>Dashboard Admin</strong>
+    <a href="index.html" style="color:#fff;text-decoration:none;font-size:.9rem">Keluar</a>
+  </header>
+
+  <div class="wrap">
+    <div class="stat">
+      <div class="box"><h3>Produk</h3><p>12</p></div>
+      <div class="box"><h3>Pesanan</h3><p>34</p></div>
+      <div class="box"><h3>Pengguna</h3><p>8</p></div>
+      <div class="box"><h3>Komentar</h3><p>21</p></div>
+    </div>
+
+    <div class="box">
+      <h3 style="margin-bottom:10px">Edit Konten Halaman Utama</h3>
+      <textarea id="konten" placeholder="Masukkan HTML untuk halaman utama..."></textarea>
+      <button onclick="simpan()">Simpan</button>
+      <div id="out"></div>
+    </div>
+  </div>
+
+<script>
+  /* KECACATAN: simpan ke localStorage tanpa sanitasi */
+  function simpan(){
+    const isi = document.getElementById("konten").value;
+    localStorage.setItem("konten_utama", isi);
+    document.getElementById("out").textContent = "Konten tersimpan.";
+  }
+
+  /* KECACATAN: tidak ada pengecekan sesi admin yang valid */
+  if(localStorage.getItem("admin_session") !== "true"){
+    /* dibiarkan tanpa pengecekan agar panel tetap terbuka */
+  }
+</script>
+</body>
+</html>
