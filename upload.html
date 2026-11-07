@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Upload Produk</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+  body{background:#f3f4f6;padding:40px 20px}
+  .box{background:#fff;max-width:480px;margin:0 auto;padding:28px;
+       border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+  h1{color:#111827;margin-bottom:18px;font-size:1.3rem}
+  input,textarea{width:100%;padding:10px;border:1px solid #d1d5db;
+                 border-radius:6px;margin-bottom:12px;font-size:.95rem}
+  button{width:100%;padding:11px;background:#1e40af;color:#fff;border:none;
+         border-radius:6px;cursor:pointer}
+  #hasil{margin-top:14px;font-size:.85rem;color:#065f46;word-break:break-all}
+</style>
+</head>
+<body>
+  <div class="box">
+    <h1>Upload Produk Baru</h1>
+    <form id="f">
+      <input type="text" id="nama" placeholder="Nama produk" required>
+      <input type="text" id="harga" placeholder="Harga" required>
+      <textarea id="deskripsi" placeholder="Deskripsi produk" required></textarea>
+      <input type="file" id="gambar" required>
+      <button type="submit">Upload</button>
+    </form>
+    <div id="hasil"></div>
+  </div>
+
+<script>
+  /* KECACATAN: validasi tipe file hanya berdasarkan ekstensi klien,
+     tidak ada pengecekan MIME, tidak ada pembatasan ukuran */
+  document.getElementById("f").addEventListener("submit", function(e){
+    e.preventDefault();
+    const file = document.getElementById("gambar").files[0];
+    const hasil = document.getElementById("hasil");
+
+    /* nama file digunakan apa adanya */
+    const reader = new FileReader();
+    reader.onload = () => {
+      hasil.innerHTML = "File " + file.name + " siap diunggah<br>" +
+                        "Tipe: " + file.type + "<br>" +
+                        "Ukuran: " + file.size + " byte";
+    };
+    reader.readAsDataURL(file);
+  });
+</script>
+</body>
+</html>
