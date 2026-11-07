@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Komentar</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+  body{background:#f3f4f6;padding:40px 20px}
+  .box{background:#fff;max-width:600px;margin:0 auto;padding:28px;
+       border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+  h1{color:#111827;margin-bottom:18px;font-size:1.3rem}
+  textarea{width:100%;min-height:100px;padding:10px;border:1px solid #d1d5db;
+           border-radius:6px;margin-bottom:12px;font-size:.95rem}
+  button{padding:10px 20px;background:#1e40af;color:#fff;border:none;
+         border-radius:6px;cursor:pointer}
+  #daftar{margin-top:22px}
+  .item{background:#f9fafb;border:1px solid #e5e7eb;padding:12px;
+        border-radius:6px;margin-bottom:10px;font-size:.9rem;color:#111827}
+</style>
+</head>
+<body>
+  <div class="box">
+    <h1>Komentar Pengunjung</h1>
+    <textarea id="isi" placeholder="Tulis komentar..."></textarea>
+    <button onclick="kirim()">Kirim</button>
+    <div id="daftar"></div>
+  </div>
+
+<script>
+  /* KECACATAN: komentar disimpan dan ditampilkan tanpa sanitasi */
+  function tampilkan(){
+    const daftar = document.getElementById("daftar");
+    const data = JSON.parse(localStorage.getItem("komentar") || "[]");
+    daftar.innerHTML = data.map(k => '<div class="item">' + k + '</div>').join("");
+  }
+
+  function kirim(){
+    const isi = document.getElementById("isi").value;
+    if(!isi.trim()) return;
+    const data = JSON.parse(localStorage.getItem("komentar") || "[]");
+    data.push(isi);
+    localStorage.setItem("komentar", JSON.stringify(data));
+    document.getElementById("isi").value = "";
+    tampilkan();
+  }
+
+  tampilkan();
+</script>
+</body>
+</html>
