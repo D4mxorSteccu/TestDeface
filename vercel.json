@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "TestDeface",
+  "public": true,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "admin.html", "use": "@vercel/static" },
+    { "src": "upload.html", "use": "@vercel/static" },
+    { "src": "komentar.html", "use": "@vercel/static" },
+    { "src": "dashboard.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
